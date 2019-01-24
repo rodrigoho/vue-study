@@ -1,30 +1,41 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
-    <h2>Essential Links</h2>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h2>Ecosystem</h2>
-    <ul>
-      <li><a href="http://router.vuejs.org/" target="_blank">vue-router</a></li>
-      <li><a href="http://vuex.vuejs.org/" target="_blank">vuex</a></li>
-      <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+    <bills-to-pay :bills="bills"/>
   </div>
 </template>
 
 <script>
+import BillsToPay from './BillsToPay';
+import item from './Item';
 export default {
   name: 'app',
+  components: {
+    BillsToPay,
+  },
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      bills: [{
+        id: 1,
+        title: 'Phone Bill',
+        value: '100,00',
+        paid: true
+      },{
+        id: 2,
+        title: 'Rent',
+        value: '1200,00',
+        paid: false
+      },{
+        id: 3,
+        title: 'Car Maintnance',
+        value: '255,00',
+        paid: false
+      },{
+        id: 4,
+        title: 'Macbook Pro',
+        value: '3899,90',
+        paid: false
+      }]
     }
   }
 }
@@ -44,7 +55,7 @@ h1, h2 {
   font-weight: normal;
 }
 
-ul {
+/* ul {
   list-style-type: none;
   padding: 0;
 }
@@ -52,7 +63,7 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
-}
+} */
 
 a {
   color: #42b983;
